@@ -1,0 +1,13 @@
+.react-icons {
+margin-right: 7px;
+display: block;
+}
+
+.link-style {
+    text-decoration-line: none;
+    color: black;
+}
+
+.link-style:hover {
+    color: teal;
+}
