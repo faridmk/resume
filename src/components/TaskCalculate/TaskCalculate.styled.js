@@ -71,6 +71,7 @@ font-size: 25px;
 font-weight: bold;
 border: none;
 margin-left: 35px;
+cursor: pointer;
 `;
 
 export const RefreshButton = s.button`
@@ -84,6 +85,7 @@ font-size: 25px;
 font-weight: bold;
 border: none;
 margin-left: 75px;
+cursor: pointer;
 `;
 
 export const TaskStyle = s.div`

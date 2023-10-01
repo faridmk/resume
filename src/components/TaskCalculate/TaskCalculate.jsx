@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import ErrorMessageTask from '../ErrorMessageTask/ErrorMessageTask';
-import SuccessMessageTask from '../SuccessMessageTask/SuccessMessageTask';
+import React, { useEffect, useState } from "react";
+import ErrorMessageTask from "../ErrorMessageTask/ErrorMessageTask";
+import SuccessMessageTask from "../SuccessMessageTask/SuccessMessageTask";
 import {
   CheckButton,
   RefreshButton,
@@ -10,25 +10,26 @@ import {
   TaskStyle,
   TaskTitle,
   TextBeforeInput,
-} from './TaskCalculate.styled';
+} from "./TaskCalculate.styled";
 
-import { FcBookmark } from 'react-icons/fc';
-import { FcRedo } from 'react-icons/fc';
+import { FcBookmark } from "react-icons/fc";
+import { FcRedo } from "react-icons/fc";
 
 export const TaskCalculate = () => {
-  const [firstNum, setFirstNum] = useState('');
-  const [secondNum, setSecondNum] = useState('');
-  const [result, setResult] = useState('');
-  const [add, setAdd] = useState('');
-  const [check, setCheck] = useState('');
+  const [firstNum, setFirstNum] = useState("");
+  const [secondNum, setSecondNum] = useState("");
+  const [result, setResult] = useState("");
+  const [add, setAdd] = useState("");
+  const [check, setCheck] = useState("");
+  const [refresh, setRefresh] = useState("");
 
   useEffect(() => {
     setFirstNum(Math.floor(Math.random() * 44 + 10));
-  }, []);
+  }, [refresh]);
 
   useEffect(() => {
     setSecondNum(Math.floor(Math.random() * 15 + 10));
-  }, []);
+  }, [refresh]);
 
   useEffect(() => {
     setResult(firstNum + secondNum);
@@ -41,11 +42,11 @@ export const TaskCalculate = () => {
   };
 
   const RefreshTask = () => {
-    window.location.reload(true);
+    setRefresh(!refresh);
   };
 
-  const EnterKey = e => {
-    if (e.key === 'Enter') {
+  const EnterKey = (e) => {
+    if (e.key === "Enter") {
       setCheck(() => {
         return +add === +result ? <SuccessMessageTask /> : <ErrorMessageTask />;
       });
@@ -55,7 +56,7 @@ export const TaskCalculate = () => {
     <Style>
       <TaskTitle>
         <FcBookmark />
-        Check your Math skills:{' '}
+        Check your Math skills:{" "}
       </TaskTitle>
       <TaskStyle>
         <Task>
@@ -68,7 +69,7 @@ export const TaskCalculate = () => {
           type="text"
           placeholder="number"
           value={add}
-          onChange={e => setAdd(e.target.value)}
+          onChange={(e) => setAdd(e.target.value)}
           onKeyDown={EnterKey}
         />
         <CheckButton type="button" onClick={CheckOption}>
